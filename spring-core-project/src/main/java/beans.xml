@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	
+	<bean id="person" class="com.examples.spring.beans.Person" autowire="byName">
+		<property name="pid" value="456" />
+      	<property name="name" value="Krishna" />
+    </bean>
+      <!-- 
+      <bean id="addr" class="com.examples.spring.beans.Address">
+
+		<constructor-arg value="123" />
+		<constructor-arg value="Koramangala" />
+		<constructor-arg value="Bangalore" />
+		
+	</bean>
+	-->
+		  
+	<bean id="address1" class="com.examples.spring.beans.Address" scope="prototype" init-method="init" destroy-method="teardown">
+
+		<property name="dno" value="123" />
+		<property name="street" value="Koramangala" />
+		<property name="city" value="Bangalore" />
+	</bean>
+	
+	<bean id="address" class="com.examples.spring.beans.Address" scope="prototype" init-method="init" destroy-method="teardown">
+
+		<property name="dno" value="456" />
+		<property name="street" value="SP Road" />
+		<property name="city" value="Hyderabad" />
+	</bean>
+	
+	
+	<bean id="emp" class="com.examples.spring.beans.Employee" scope="singleton" >
+		<property name="empid" value="9001" />
+		<property name="name" value="Raj" />
+		<property name="dept" value="IT" />
+	
+	</bean>
+
+</beans>
