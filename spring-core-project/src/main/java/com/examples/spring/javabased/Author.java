@@ -1,5 +1,8 @@
 package com.examples.spring.javabased;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Author {
 
 	String aid;

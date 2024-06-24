@@ -2,7 +2,8 @@ package com.examples.spring.annotationbased;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.examples.spring.javabased.BeansConfigurations;
+import com.examples.spring.annotationbased.carconfigs.Machine;
+import com.examples.spring.javabased.Author;
 
 public class AnnotationBasedTester {
 
@@ -17,6 +18,12 @@ public class AnnotationBasedTester {
 		
 		Engine e = config.getBean(Engine.class);
 		System.out.println(e);
+		
+		Machine m = config.getBean(Machine.class);
+		System.out.println(m);
+		
+		Author a = config.getBean(Author.class);
+		System.out.println(a);
 
 	}
 
