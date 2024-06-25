@@ -8,7 +8,9 @@ public interface CommentsDao {
 	
 	public List<Comments> getAllComments();
 	public int addComment(Comments comment);
-	public Comments searchComment(int cid) ;
+	public List<Comments> searchComment(int cid) ;
 	public int  deleteComment(int cid) ;
+	// write the code for updating the comment data
+	// write the code to handle the exception cases
 
 }

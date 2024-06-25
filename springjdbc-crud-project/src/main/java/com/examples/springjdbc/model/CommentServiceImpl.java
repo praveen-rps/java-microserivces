@@ -20,7 +20,7 @@ public class CommentServiceImpl implements CommentsService {
 	@Override
 	public List<Comments> getAllComments() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllComments();
 	}
 
 	@Override
@@ -30,9 +30,9 @@ public class CommentServiceImpl implements CommentsService {
 	}
 
 	@Override
-	public Comments searchComment(int cid) {
+	public List<Comments> searchComment(int cid) {
 		// TODO Auto-generated method stub
-		return  null;
+		return  dao.searchComment(cid);
 	}
 
 	@Override

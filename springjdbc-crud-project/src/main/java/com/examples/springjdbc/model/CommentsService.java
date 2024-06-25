@@ -8,7 +8,7 @@ public interface CommentsService {
 	
 	public List<Comments> getAllComments();
 	public int addComment(Comments comment);
-	public Comments searchComment(int cid);
+	public List<Comments> searchComment(int cid);
 	public int deleteComment(int cid);
 
 }

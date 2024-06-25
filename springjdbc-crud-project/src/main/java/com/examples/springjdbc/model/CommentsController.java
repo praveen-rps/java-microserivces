@@ -14,6 +14,9 @@ public class CommentsController {
 		AnnotationConfigApplicationContext context = 
 				new AnnotationConfigApplicationContext(SpringJdbcConfigs.class);
 		CommentsService service = context.getBean(CommentsService.class);
+		//service.getAllComments().forEach(System.out::println);
+		service.searchComment(9001).forEach(System.out::println);
+		/*
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the comment id to delete: ");
 		int cid = sc.nextInt();
@@ -24,7 +27,7 @@ public class CommentsController {
 		else {
 		System.out.println("Error in deleting comment");
 		}
-		/*
+		
 		
 		Comments comment = new Comments(9007, "give the details of spring", "Mahesh", 1002);
 		int result = service.addComment(comment);
@@ -50,7 +53,7 @@ public class CommentsController {
 			sc.close();
 		}
 
-		// service.getAllComments().forEach(System.out::println);
+		// 
 
 		/*Comments comment = new Comments(9007, "Can you make it clear", "Sunil", 1001);
 

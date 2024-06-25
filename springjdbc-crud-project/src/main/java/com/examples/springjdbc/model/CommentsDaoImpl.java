@@ -15,7 +15,7 @@ public class CommentsDaoImpl implements CommentsDao{
 	
 	@Override
 	public List<Comments> getAllComments() {
-		return null;
+		return jdbcTemplate.query("select * from comments", new CommentsRowMapper());
 	}
 
 	@Override
@@ -31,11 +31,10 @@ public class CommentsDaoImpl implements CommentsDao{
 	}
 
 	@Override
-	public Comments searchComment(int cid)  {
+	public List<Comments> searchComment(int cid)  {
 		// TODO Auto-generated method stub
-		
-	    return null;
-	
+		return jdbcTemplate.query("select * from comments where cid=?", 
+				new CommentsRowMapper(),cid);
 	}
 
 	@Override
