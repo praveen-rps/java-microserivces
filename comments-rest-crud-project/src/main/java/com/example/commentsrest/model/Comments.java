@@ -1,11 +1,15 @@
 package com.example.commentsrest.model;
 
+import jakarta.validation.constraints.NotNull;
+
 public class Comments {
 	
 	int cid;
 	
+	@NotNull(message = "Comment cannot be null")
 	String comment;
 	
+	@NotNull(message = "Commenter cannot be null")
 	String commenter;
 	
 	int pid;

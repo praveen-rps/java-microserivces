@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.commentsrest.model.Comments;
 import com.example.commentsrest.service.CommentService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
@@ -31,7 +33,7 @@ public class CommentController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Comments> addComment(@RequestBody Comments comment) {
+	public ResponseEntity<Comments> addComment(@RequestBody @Valid Comments comment) {
 		return new ResponseEntity(service.addComment(comment), HttpStatus.CREATED);
 	}
 	
@@ -41,12 +43,17 @@ public class CommentController {
 	}
 	
 	@DeleteMapping("/delete/{cid}")
-	public int deleteComment(@PathVariable int cid) {
-		return service.deleteComment(cid);
+	public ResponseEntity<String> deleteComment(@PathVariable int cid) {
+		int k = service.deleteComment(cid);
+		
+		if (k == 1) {
+			return new ResponseEntity<>("Comment Deleted", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Comment not found", HttpStatus.NOT_FOUND);
+		}
+		
+		
 	}
-	
-	
-	
 
 }
 

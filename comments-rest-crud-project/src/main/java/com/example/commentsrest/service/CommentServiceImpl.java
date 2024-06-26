@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.commentsrest.dao.CommentsDao;
+import com.example.commentsrest.exceptions.CommentsNotFoundException;
 import com.example.commentsrest.model.Comments;
 
 
@@ -28,13 +29,13 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public Comments searchComment(int cid) {
+	public Comments searchComment(int cid) throws CommentsNotFoundException {
 		// TODO Auto-generated method stub
 		return dao.searchComment(cid);
 	}
 
 	@Override
-	public int deleteComment(int cid) {
+	public int deleteComment(int cid) throws CommentsNotFoundException{
 		// TODO Auto-generated method stub
 		return dao.deleteComment(cid);
 	}

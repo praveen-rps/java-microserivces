@@ -2,9 +2,11 @@ package com.example.commentsrest.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.commentsrest.exceptions.CommentsNotFoundException;
 import com.example.commentsrest.model.Comments;
 
 
@@ -33,26 +35,28 @@ public class CommentsDaoImpl implements CommentsDao{
 	}
 
 	@Override
-	public Comments searchComment(int cid) {
+	public Comments searchComment(int cid) throws CommentsNotFoundException {
 		// TODO Auto-generated method stub
 		//Comments result = null;
-		for (Comments c : comments) {
-			if (c.getCid() == cid) {
-				return c;
-			}
-		}
-		return null;
+		return comments.stream()
+					    .filter(c -> c.getCid() == cid)
+					    .findFirst()
+					    .orElseThrow(CommentsNotFoundException::new);
 	}
 
 	@Override
-	public int deleteComment(int cid) {
+	public int deleteComment(int cid) throws CommentsNotFoundException {
 		// TODO Auto-generated method stub
 		int result =0;
-		boolean k = comments.removeIf(c -> c.getCid() == cid);
-		if(k) {
-            result = 1;
-        }
+		Optional<Comments> comment = comments.stream().filter(c -> c.getCid() == cid).findFirst();
+		
+		if (comment.isPresent()) {
+			comments.remove(comment.get());
+			result = 1;
+		} 
+					
 		return result;
+		
 		
 	}
 
