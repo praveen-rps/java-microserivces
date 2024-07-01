@@ -41,8 +41,8 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Orders> viewCustomerOrders(Long customerId) {
 		// TODO Auto-generated method stub
-		
-		return ordersRepository.findAllByCustomerId(customerId);
+		System.out.println("Customer service is called order service");
+		return ordersRepository.findAllByCid(customerId);
 
 	}
 

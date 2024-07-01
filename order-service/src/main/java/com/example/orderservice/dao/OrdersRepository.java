@@ -11,6 +11,6 @@ import com.example.orderservice.model.Orders;
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Long>{
 	
-	public List<Orders> findAllByCustomerId(Long customerId);
+	public List<Orders> findAllByCid(Long cid);
 
 }

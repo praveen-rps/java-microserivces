@@ -26,8 +26,10 @@ public class OrderController {
 		return service.viewAllOrders();
 	}
 	
+	// http://localhost:8082/orders/customer/1
 	@GetMapping("/customer/{customerId}")
-	public List<Orders> viewCustomerOrders(Long customerId) {
+	public List<Orders> viewCustomerOrders(@PathVariable Long customerId) {
+		System.out.println("order contoller is called order service");
 		return service.viewCustomerOrders(customerId);
 	}
 	

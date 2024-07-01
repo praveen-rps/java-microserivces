@@ -1,5 +1,6 @@
 package com.example.orderservice.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="orders-microservice")
+@Table(name="ordersmicroservice")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,12 +20,12 @@ import lombok.Setter;
 public class Orders {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long orderId;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long oid;
 	
 	String details;
 	
-	Long customerId;
+	Long cid;
 	
 	
 
