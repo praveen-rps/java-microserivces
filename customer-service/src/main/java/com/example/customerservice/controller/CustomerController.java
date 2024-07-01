@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.customerservice.model.Customer;
+import com.example.customerservice.model.OrdersDto;
 import com.example.customerservice.service.CustomerService;
 
 @RestController
@@ -37,8 +38,8 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/orders/{customerId}")
-	public void viewCustomerOrders(@PathVariable Long customerId) {
-		service.viewCustomerOrders(customerId);
+	public List<OrdersDto> viewCustomerOrders(@PathVariable Long customerId) {
+		return service.viewCustomerOrders(customerId);
 	}
 
 }
