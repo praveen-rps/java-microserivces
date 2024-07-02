@@ -19,6 +19,9 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	private CustomerDao customerDao;
+	
+	@Autowired
+	private FeignProxy proxy;
 
 	@Override
 	public Customer addCustomer(Customer customer) {
@@ -37,9 +40,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<OrdersDto> viewCustomerOrders(Long customerId) {
 		// TODO Auto-generated method stub
 		String url= "http://localhost:8082/orders/customer/"+customerId;
-		return restTemplate.getForObject("http://localhost:8082/orders/customer/"+customerId, List.class);
-		//return restTemplate.getForObject("http://ORDER-SERVICE/orders/customer/"+customerId, List.class);
-	
+		//return restTemplate.getForObject("http://localhost:8082/orders/customer/"+customerId, List.class);
+	//	return restTemplate.getForObject("http://ORDER-SERVICE/orders/customer/"+customerId, List.class);
+		return proxy.viewCustomerOrders(customerId);
 
 	}
 
@@ -47,6 +50,13 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> viewAllCustomers() {
 		// TODO Auto-generated method stub
 		return customerDao.findAll();
+	}
+
+	@Override
+	public String getOrdersPort() {
+		// TODO Auto-generated method stub
+		//return restTemplate.getForObject("http://ORDER-SERVICE/orders/port", String.class);
+		return proxy.getPort();
 	}
 
 }

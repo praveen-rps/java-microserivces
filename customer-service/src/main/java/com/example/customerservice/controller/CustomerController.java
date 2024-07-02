@@ -22,6 +22,11 @@ public class CustomerController {
 	@Autowired
 	CustomerService service;
 	
+	@GetMapping("/getOrdersPort")
+	public String getOrdersPort() {
+		return service.getOrdersPort();
+	}
+	
 	@GetMapping
 	public List<Customer> viewAllCustomers() {
 		return service.viewAllCustomers();
