@@ -1,0 +1,12 @@
+server:
+   port: 8084
+ 
+spring:
+   application:
+      name: spring-boot-rest-orders
+   datasource:
+      url: jdbc:mysql://localhost:3306/microservicesdb
+      username: root
+      password: root
+      #driver-class-name: com.mysql.cj.jdbc.Driver
+   
