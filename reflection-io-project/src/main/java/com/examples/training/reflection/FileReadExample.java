@@ -8,7 +8,7 @@ public class FileReadExample {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		FileInputStream fis = new FileInputStream("d://sample.txt");
+		FileInputStream fis = new FileInputStream("d://dbprops.properties");
 		
 		int content;
 		while ((content = fis.read()) != -1) {
