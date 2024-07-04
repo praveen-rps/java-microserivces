@@ -1,5 +1,6 @@
 package com.examples.commentsproject.controller;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.examples.commentsproject.exceptions.CommentNotFoundException;
@@ -8,7 +9,7 @@ import com.examples.commentsproject.service.CommentServiceImpl;
 import com.examples.commentsproject.service.CommentsService;
 
 public class CommentsController {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 
 		CommentsService service = new CommentServiceImpl();

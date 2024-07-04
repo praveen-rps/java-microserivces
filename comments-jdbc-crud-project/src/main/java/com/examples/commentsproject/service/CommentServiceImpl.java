@@ -1,5 +1,6 @@
 package com.examples.commentsproject.service;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import com.examples.commentsproject.dao.CommentsDao;
@@ -17,25 +18,25 @@ public class CommentServiceImpl implements CommentsService {
 	}
 
 	@Override
-	public List<Comments> getAllComments() {
+	public List<Comments> getAllComments() throws FileNotFoundException{
 		// TODO Auto-generated method stub
 		return dao.getAllComments();
 	}
 
 	@Override
-	public int addComment(Comments comment) {
+	public int addComment(Comments comment) throws FileNotFoundException{
 		// TODO Auto-generated method stub
 		return dao.addComment(comment);
 	}
 
 	@Override
-	public Comments searchComment(int cid) throws CommentNotFoundException{
+	public Comments searchComment(int cid) throws CommentNotFoundException,FileNotFoundException{
 		// TODO Auto-generated method stub
 		return dao.searchComment(cid);
 	}
 
 	@Override
-	public int  deleteComment(int cid)throws CommentNotFoundException {
+	public int  deleteComment(int cid)throws CommentNotFoundException, FileNotFoundException{
 		// TODO Auto-generated method stub
 		return dao.deleteComment(cid);
 	}

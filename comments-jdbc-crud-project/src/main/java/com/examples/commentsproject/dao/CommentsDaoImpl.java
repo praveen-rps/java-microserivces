@@ -1,5 +1,6 @@
 package com.examples.commentsproject.dao;
 
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ public class CommentsDaoImpl implements CommentsDao{
 	int k=0;
 	
 	@Override
-	public List<Comments> getAllComments() {
+	public List<Comments> getAllComments() throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		comments = new ArrayList<>();
 		con = DbConnections.getDatabaseConnection();
@@ -48,7 +49,7 @@ public class CommentsDaoImpl implements CommentsDao{
 	}
 
 	@Override
-	public int addComment(Comments comment) {
+	public int addComment(Comments comment) throws FileNotFoundException{
 		// TODO Auto-generated method stub
 		
 		
@@ -78,7 +79,7 @@ public class CommentsDaoImpl implements CommentsDao{
 	}
 
 	@Override
-	public Comments searchComment(int cid) throws CommentNotFoundException {
+	public Comments searchComment(int cid) throws CommentNotFoundException, FileNotFoundException{
 		// TODO Auto-generated method stub
 		List<Comments> comments = new ArrayList<>();
 		con = DbConnections.getDatabaseConnection();
@@ -102,7 +103,7 @@ public class CommentsDaoImpl implements CommentsDao{
 	}
 
 	@Override
-	public int  deleteComment(int cid) {
+	public int  deleteComment(int cid) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		int result = 0;
 		con = DbConnections.getDatabaseConnection();
