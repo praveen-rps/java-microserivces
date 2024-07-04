@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo.UserControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.084 s <<< FAILURE! -- in com.example.demo.UserControllerTest
+com.example.demo.UserControllerTest.testPostUser -- Time elapsed: 0.033 s <<< FAILURE!
+java.lang.AssertionError: No value at JSON path "$[0].username"
+	at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:302)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:73)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers.lambda$value$0(JsonPathResultMatchers.java:87)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.example.demo.UserControllerTest.testPostUser(UserControllerTest.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: java.lang.IllegalArgumentException: json can not be null or empty
+	at com.jayway.jsonpath.internal.Utils.notEmpty(Utils.java:401)
+	at com.jayway.jsonpath.JsonPath.read(JsonPath.java:390)
+	at com.jayway.jsonpath.JsonPath.read(JsonPath.java:377)
+	at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:299)
+	... 7 more
+
