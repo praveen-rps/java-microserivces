@@ -1,0 +1,1 @@
+cnx = mysql.connector.connect(user="adminvid1932", password="{your_password}", host="vid1932-server-demo.mysql.database.azure.com", port=3306, database="{your_database}", ssl_ca="{ca-cert filename}", ssl_disabled=False)
